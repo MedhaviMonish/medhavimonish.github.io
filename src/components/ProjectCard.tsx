@@ -14,8 +14,8 @@ export default function ProjectCard({ title, tagline, description, tags, links }
   return (
     <div className="bg-iron border border-steel text-pale rounded-lg shadow hover:shadow-md p-6">
       <h3 className="text-xl font-bold text-white">{title}</h3>
-      <p className="text-sm text-gray-500 mb-2">{tagline}</p>
-      <p className="text-gray-700 text-sm mb-4">{description}</p>
+      <p className="text-sm text-gray-300 mb-2">{tagline}</p>
+      <p className="text-gray-500 text-sm mb-4">{description}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {tags.map((tag) => (
           <span key={tag} className="text-xs bg-ember text-black px-2 py-1 rounded font-medium shadow-sm">

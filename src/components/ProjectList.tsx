@@ -4,7 +4,7 @@ const projects = [
     title: "Cortana++",
     tagline: "Lightweight ML engine in C++/CUDA",
     description: "Implements tensors, Dense layers, and broadcasted CUDA ops. Built from scratch.",
-    tags: ["C++", "CUDA", "ML Engine"],
+    tags: ["C++", "CUDA", "ML Engine", "GPU Based"],
     links: {
       github: "https://github.com/MedhaviMonish/CortanaPlusPlus",
     },
@@ -13,7 +13,7 @@ const projects = [
     title: "Darwin’s Silicate Organism",
     tagline: "Memory-based modular survival AI",
     description: "Simulates emergent behavior with curiosity, memory, and reward modules under survival pressure.",
-    tags: ["AI", "Modular", "Survival"],
+    tags: ["RL", "Curiosity", "Modular", "Survival"],
     links: {
       github: "https://github.com/MedhaviMonish/Darwins-Silicate-Organism",
     },
@@ -22,7 +22,7 @@ const projects = [
     title: "GreedyContext",
     tagline: "Token reduction for LLMs using greedy semantic graphs",
     description: "Builds semantic trails using cosine similarity and a greedy graph search to reduce LLM context size.",
-    tags: ["LLM", "NLP", "Optimization"],
+    tags: ["LLM", "Context Optimization"],
     links: {
       github: "https://github.com/MedhaviMonish/GreedyContext",
     },
@@ -31,18 +31,9 @@ const projects = [
     title: "Self-Driving Car v2",
     tagline: "Blender + Unity simulation with PPO agent",
     description: "Trains a car to navigate custom tracks using PPO in Unity with GPS integration.",
-    tags: ["Unity", "PPO", "Simulation", "Self-Driving"],
+    tags: ["Blender", "Unity-3D", "PPO", "Simulation", "Self-Driving"],
     links: {
       github: "https://github.com/MedhaviMonish/Self-Driving-Car-Version-2",
-    },
-  },
-  {
-    title: "FaceSwapping",
-    tagline: "Face swap with OpenCV + deep learning",
-    description: "A Python project to perform real-time or offline face-swapping using landmarks and blending.",
-    tags: ["Python", "Computer Vision", "OpenCV"],
-    links: {
-      github: "https://github.com/MedhaviMonish/FaceSwapping",
     },
   },
   {
@@ -52,6 +43,15 @@ const projects = [
     tags: ["Genetic Algorithm", "Optimization", "Java", "Python"],
     links: {
       github: "https://github.com/MedhaviMonish/GeneticAlgorithm",
+    },
+  },
+  {
+    title: "FaceSwapping",
+    tagline: "Face swap with OpenCV + deep learning",
+    description: "A Python project to perform real-time or offline face-swapping.",
+    tags: ["Python", "Computer Vision", "OpenCL", "GPU Programming"],
+    links: {
+      github: "https://github.com/MedhaviMonish/FaceSwapping",
     },
   },
   {
