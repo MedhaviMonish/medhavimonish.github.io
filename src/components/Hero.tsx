@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="relative text-center max-w-3xl mx-auto py-16 px-4">
       {/* Top-left contact icons */}
-      <div className="absolute top-8 -left-16 flex flex-col items-start text-sm space-y-2 text-gray-400">
+      <div className="absolute top-8 -right-64 flex flex-col items-end text-sm space-y-2 text-gray-400 z-50">
         <a
           href="mailto:monishmedhavi@gmail.com"
           className="flex items-center gap-2 hover:text-white transition"
