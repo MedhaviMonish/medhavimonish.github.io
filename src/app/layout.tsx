@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <base href="./" />
+        <base href="./" /> {/* ✅ forces relative asset path resolution */}
       </head>
       <body className="antialiased font-sans bg-white text-black">
         {children}
