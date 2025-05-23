@@ -5,11 +5,11 @@ export default function Hero() {
         Medhavi Monish
       </h1>
       <p className="text-xl text-gray-600 mb-6">
-        AI Blacksmith forging intelligence from scratch — one neuron, one kernel at a time.
+        <span className="text-ember">#AIBlacksmith</span> forging intelligence from scratch — one neuron, one kernel at a time.
       </p>
       <p className="text-md text-gray-500 mb-6">
-        Builder of custom ML engines, modular AI lifeforms, and reasoning systems that challenge assumptions.  
-        No libraries. No shortcuts. Just understanding and raw compute.
+        Builder of custom ML engines, modular AI lifeforms, and reasoning systems that challenge assumptions.<br />
+        Sometimes with tools. Often from scratch. Always with intent.
       </p>
       <a
         href="#projects"

@@ -12,13 +12,13 @@ interface ProjectProps {
 
 export default function ProjectCard({ title, tagline, description, tags, links }: ProjectProps) {
   return (
-    <div className="border rounded-lg p-6 bg-white shadow hover:shadow-md transition">
-      <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
+    <div className="bg-iron border border-steel text-pale rounded-lg shadow hover:shadow-md p-6">
+      <h3 className="text-xl font-bold text-white">{title}</h3>
       <p className="text-sm text-gray-500 mb-2">{tagline}</p>
       <p className="text-gray-700 text-sm mb-4">{description}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {tags.map((tag) => (
-          <span key={tag} className="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">
+          <span key={tag} className="text-xs bg-ember text-black px-2 py-1 rounded font-medium shadow-sm">
             #{tag}
           </span>
         ))}

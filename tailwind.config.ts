@@ -11,6 +11,11 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        ember: '#ff6b00',
+        iron: '#1a1a1a',
+        soot: '#0f0f0f',
+        steel: '#2d2d2d',
+        pale: '#f4f4f5',
       },
     },
   },

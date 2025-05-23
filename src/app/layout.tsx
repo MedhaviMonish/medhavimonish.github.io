@@ -16,7 +16,7 @@ export default function RootLayout({
       <head>
         <base href="./" /> 
       </head>
-      <body className="antialiased font-sans bg-white text-black">
+      <body className="bg-soot text-pale font-sans antialiased">
         {children}
       </body>
     </html>
