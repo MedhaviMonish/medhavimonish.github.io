@@ -1,3 +1,4 @@
+"use client";
 import Hero from "@/components/Hero";
 import ProjectList from "@/components/ProjectList";
 import BlogList from "@/components/BlogList";
@@ -41,6 +42,12 @@ export default function HomePage() {
             </a>
           </div>
         </footer>
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 z-50 bg-ember text-black px-4 py-2 rounded-full shadow-lg hover:bg-orange-400 transition"
+        >
+          ↑ Top
+        </button>
       </div>
     </main>
   );
