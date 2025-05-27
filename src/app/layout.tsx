@@ -17,7 +17,11 @@ export default function RootLayout({
         <base href="./" /> 
       </head>
       <body className="bg-soot text-pale font-sans antialiased">
-        {children}
+        <div className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: "url('/images/bg-home.png')" }}>
+          <div className="bg-black/70 min-h-screen">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
