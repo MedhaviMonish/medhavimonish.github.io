@@ -48,7 +48,7 @@ const projects = [
   {
     title: "FaceSwapping",
     tagline: "Face swap with OpenCV + deep learning",
-    description: "A Python project to perform real-time or offline face-swapping.",
+    description: "A Python project to perform real-time deep-fake build without any ML library.",
     tags: ["Python", "Computer Vision", "OpenCL", "GPU Programming"],
     links: {
       github: "https://github.com/MedhaviMonish/FaceSwapping",

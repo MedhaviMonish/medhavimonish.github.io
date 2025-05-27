@@ -32,12 +32,20 @@ export default function Hero() {
         Builder of custom ML engines, modular AI lifeforms, and reasoning systems that challenge assumptions.<br />
         Sometimes with tools. Often from scratch. Always with intent.
       </p>
-      <a
-        href="#projects"
-        className="inline-block mt-4 px-6 py-3 bg-black text-white font-semibold rounded hover:bg-gray-800 transition"
-      >
-        View My Work
-      </a>
+      <div className="flex justify-center gap-4 mt-4">
+        <a
+          href="#projects"
+          className="px-6 py-3 bg-black text-white font-semibold rounded hover:bg-gray-800 transition"
+        >
+          View My Work
+        </a>
+        <a
+          href="#blogs"
+          className="px-6 py-3 bg-black text-white font-semibold rounded hover:bg-gray-800 transition"
+        >
+          View My Blogs
+        </a>
+      </div>
     </section>
   );
 }
