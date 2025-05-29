@@ -7,22 +7,339 @@ export default function BlogJsonToYaml() {
       style={{ backgroundImage: "url('/images/bg-home.png')" }}
     >
       <div className="w-full max-w-4xl bg-black/80 text-white p-10 rounded-xl shadow-md">
+
         <h1 className="text-4xl font-bold text-ember mb-2">
-          Why I Moved from JSON to YAML for LLM Tool Calls
+          Why I Moved from JSON to YAML for LLM Use cases
         </h1>
-        <p className="text-sm text-gray-400 mb-6">
-          May 2025 · #LLM #YAML #Optimization
+        <p className="mb-6 leading-relaxed">
+          When working with large language models (LLMs), most developers use JSON for tool calls — and for good reason.
+          It's simple, structured, and widely supported.
+          But after building several AI products using LLMs — I realized JSON had critical drawbacks in high-performance LLM pipelines.
         </p>
-        <p className="mb-6">
-          JSON seems clean — until you run into token cost, fragility, and model errors.
-        </p>
-        <h2 className="text-2xl font-semibold text-ember mb-2">1. YAML saves tokens</h2>
-        <p className="mb-6">
-          No braces. No quotes. Just structure. That’s fewer tokens and fewer surprises.
-        </p>
+
         <blockquote className="border-l-4 border-ember pl-4 italic text-gray-400">
-          The decision wasn’t emotional — it was practical.
+          So I made the switch to <b>YAML</b>.
         </blockquote>
+        <br />
+
+        <p className="mb-6 leading-relaxed">
+          And it wasn’t just about aesthetics — it was about <b>speed, structure, and control</b>.
+        </p>
+
+        <h2 className="text-2xl font-bold text-ember mb-2">
+          JSON: The Default That Breaks Under Pressure
+        </h2>
+        <p className="mb-6 leading-relaxed">
+          JSON works great when your model is generating a small schema. But in real-world workflows:
+        </p>
+        <ul className="list-disc list-inside space-y-2 text-gray-400 leading-relaxed mb-6">
+          <li>Models hallucinate trailing braces, quotes or misplace commas.</li>
+          <li>Multi-level nesting gets bloated fast.</li>
+          <li>Every extra quote and bracket consumes tokens.</li>
+          <li>Extracting incomplete JSON during streaming becomes a nightmare.</li>
+        </ul>
+        <p className="mb-6 leading-relaxed">
+          In my own LLM-RL pipeline, I was generating structured responses from the model — and YAML was the perfect choice.
+        </p>
+
+        <h2 className="text-2xl font-bold text-ember mb-2">
+          YAML: Compact, Streamable, and Human-Friendly
+        </h2>
+        <p className="mb-6 leading-relaxed">
+          The industry is pushing MCP (Model Context Protocol) as the “USB-C” for AI — but underneath, it’s still just JSON with tool descriptions. My approach skips the hype and focuses on real-world performance:
+        </p>
+        Here’s why I moved to YAML:
+        <p className="mb-6 leading-relaxed">
+          YAML eliminates quotes, brackets, and unnecessary noise. That means:
+        </p>
+        <p className="mb-6 leading-relaxed">
+          And it works — because it’s optimized not for interoperability, but for execution.
+        </p>
+        <ul className="list-disc list-inside space-y-2 text-gray-400 leading-relaxed mb-6">
+          <li>Fewer tokens.</li>
+          <li>Faster generation</li>
+          <li>Lower cost per generation.</li>
+          <li>Fewer bugs</li>
+          <li>Clearer structure</li>
+        </ul>
+
+
+
+        <h2 className="text-2xl font-bold text-ember mb-2">
+          Comparison of JSON and YAML
+        </h2>
+        <h3 className="text-1xl font-semibold text-ember mb-2">Example 1</h3>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            241 Tokens
+          </blockquote>
+          <code>
+            {`{
+  "user": {
+    "id": 1023,
+    "name": "Alice Johnson",
+    "email": "alice.j@example.com",
+    "preferences": {
+      "language": "English",
+      "timezone": "UTC-5",
+      "notifications": {
+        "email": true,
+        "sms": false,
+        "push": true
+      }
+    },
+    "orders": [
+      {
+        "order_id": "A1001",
+        "date": "2025-05-20",
+        "total": 199.99,
+        "items": [
+          {"product_id": "P501", "name": "Wireless Mouse", "quantity": 1},
+          {"product_id": "P502", "name": "Mechanical Keyboard", "quantity": 1}
+        ]
+      },
+      {
+        "order_id": "A1002",
+        "date": "2025-05-25",
+        "total": 89.50,
+        "items": [
+          {"product_id": "P503", "name": "USB-C Hub", "quantity": 2}
+        ]
+      }
+    ]
+  }
+}
+`}
+          </code>
+        </pre>
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            194 Tokens
+          </blockquote>
+          <code>
+            {`user:
+  id: 1023
+  name: "Alice Johnson"
+  email: "alice.j@example.com"
+  preferences:
+    language: "English"
+    timezone: "UTC-5"
+    notifications:
+      email: true
+      sms: false
+      push: true
+  orders:
+    - order_id: "A1001"
+      date: "2025-05-20"
+      total: 199.99
+      items:
+        - product_id: "P501"
+          name: "Wireless Mouse"
+          quantity: 1
+        - product_id: "P502"
+          name: "Mechanical Keyboard"
+          quantity: 1
+    - order_id: "A1002"
+      date: "2025-05-25"
+      total: 89.50
+      items:
+        - product_id: "P503"
+          name: "USB-C Hub"
+          quantity: 2
+`}
+          </code>
+        </pre>
+        <h3 className="text-1xl font-semibold text-ember mb-2">Example 2</h3>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            19 Tokens
+          </blockquote>
+          <code>
+            {`{
+  "values": [-10, 0, 5, 100]
+}`}
+          </code>
+        </pre>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            22 Tokens
+          </blockquote>
+          <code>
+            {`values:
+- -10
+- 0
+- 5
+- 100`}
+          </code>
+        </pre>
+        <h3 className="text-1xl font-semibold text-ember mb-2">Example 3</h3>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            34 Tokens
+          </blockquote>
+          <code>
+            {`{
+  "user": "John",
+  "active": true,
+  "balance": -150.75,
+  "roles": ["admin", "editor"]
+}`}
+          </code>
+        </pre>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            28 Tokens
+          </blockquote>
+          <code>
+            {`user: "John"
+active: true
+balance: -150.75
+roles:
+  - "admin"
+  - "editor"`}
+          </code>
+        </pre>
+        <h3 className="text-1xl font-semibold text-ember mb-2">Example 4</h3>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            34 Tokens
+          </blockquote>
+          <code>
+            {`{
+  "event": {
+    "name": "Launch",
+    "date": "2025-07-01",
+    "online": false
+  }
+}`}
+          </code>
+        </pre>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            23 Tokens
+          </blockquote>
+          <code>
+            {`event:
+name: "Launch"
+date: "2025-07-01"
+online: false`}
+          </code>
+        </pre>
+        <h3 className="text-1xl font-semibold text-ember mb-2">Example 5</h3>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            49 Tokens
+          </blockquote>
+          <code>
+            {`{
+  "config": {
+    "retry": 3,
+    "thresholds": {
+      "warning": -1,
+      "critical": -10
+    },
+    "modes": ["auto", "manual"]
+  }
+}`}
+          </code>
+        </pre>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            36 Tokens
+          </blockquote>
+          <code>
+            {`config:
+retry: 3
+thresholds:
+  warning: -1
+  critical: -10
+modes:
+  - "auto"
+  - "manual"`}
+          </code>
+        </pre>
+        <h3 className="text-1xl font-semibold text-ember mb-2">Example 6</h3>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            51 Tokens
+          </blockquote>
+          <code>
+            {`{
+  "servers": [
+    { "host": "192.168.1.1", "port": 8080 },
+    { "host": "192.168.1.2", "port": 8081 }
+  ]
+}`}
+          </code>
+        </pre>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            41 Tokens
+          </blockquote>
+          <code>
+            {`servers:
+- host: "192.168.1.1"
+  port: 8080
+- host: "192.168.1.2"
+  port: 8081`}
+          </code>
+        </pre>
+        <h3 className="text-1xl font-semibold text-ember mb-2">Example 7</h3>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            18 Tokens
+          </blockquote>
+          <code>
+            {`{
+  "code": "007",
+  "version": "1.0"
+}`}
+          </code>
+        </pre>
+
+        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+          <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
+            12 Tokens
+          </blockquote>
+          <code>
+            {`code: "007"
+version: "1.0"`}
+          </code>
+        </pre>
+
+
+        <p className="mb-6 leading-relaxed">
+          YAML consistently demonstrates greater token efficiency compared to JSON, with an average reduction of around 20%, 
+          particularly in complex or deeply nested data structures. 
+          YAML avoids repetitive punctuation like braces and commas used in JSON. 
+          However, YAML’s advantage diminishes—and can even reverse—in flat structures such as simple arrays, 
+          where its line-based formatting introduces overhead. 
+          While YAML also enhances human readability, 
+          In LLM prompts—YAML offers a compelling balance of compactness, clarity and speed over JSON, while maintaining exactly same structure.
+        </p>
+        
+         
+
+        <h2 className="text-2xl font-bold text-ember mb-2">
+          Final Thoughts
+        </h2>
+        <p className="mb-6 leading-relaxed">
+          I’m not saying YAML is perfect — it has its quirks. But in a reasoning-first, RL-optimized, self-contained AI system — YAML gives me speed, clarity, and structure that JSON simply couldn’t.
+          If you're building structured reasoning agents or tool-augmented models, try YAML.
+          It might just make your system <b className="text-ember"><i>faster, smarter, and more aligned</i></b>.
+        </p>
       </div>
     </main>
   );
