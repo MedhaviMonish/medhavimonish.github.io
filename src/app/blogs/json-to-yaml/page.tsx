@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable react/no-unescaped-entities */
 import CodeBlock from "@/components/CodeBlock";
 
 export default function BlogJsonToYaml() {
