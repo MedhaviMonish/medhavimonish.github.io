@@ -12,12 +12,17 @@ export default function BlogGreedyContext() {
       <div className="w-full max-w-4xl bg-black/80 text-gray-200 p-10 rounded-xl shadow-md">
 
         <h1 className="text-4xl font-bold text-ember mb-2">
+  <a href="https://github.com/MedhaviMonish/GreedyContext" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline text-base block mb-2">
+    🔗 View on GitHub
+  </a>
           GreedyContext: Shrinking LLM Memory with Semantic Graphs
         </h1>
         <p className="mb-6 leading-relaxed">
-          Long LLM conversations waste tokens. GreedyContext finds what's truly relevant.
-          Instead of feeding your model the last 100 messages, why not just pass the 7 that matter?
-        </p>
+  Traditional LLM-based chat systems send the entire conversation history to the model, even if most of it is no longer relevant.
+  This not only increases token usage and latency but can also confuse the model during topic switches. GreedyContext solves this by
+  constructing a semantic graph of message relationships and then extracting a minimal, meaningful subset of messages that are
+  directly relevant to the user's latest query. So instead of blindly sending 100+ previous messages, you send only the 5–10 that matter.
+</p>
 
         <h2 className="text-2xl font-bold text-ember mb-2">❌ Problems with Full-History Approach</h2>
         <ul className="list-disc list-inside space-y-2 text-gray-400 leading-relaxed mb-6">

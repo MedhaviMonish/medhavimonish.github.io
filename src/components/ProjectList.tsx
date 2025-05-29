@@ -25,6 +25,7 @@ const projects = [
     tags: ["LLM", "Context Optimization"],
     links: {
       github: "https://github.com/MedhaviMonish/GreedyContext",
+      blog: "/blogs/greedy-context",
     },
   },
   {
