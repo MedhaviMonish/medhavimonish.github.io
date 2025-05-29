@@ -1,4 +1,5 @@
 "use client";
+import CodeBlock from "@/components/CodeBlock";
 
 export default function BlogJsonToYaml() {
   return (
@@ -68,14 +69,30 @@ export default function BlogJsonToYaml() {
         <h2 className="text-2xl font-bold text-ember mb-2">
           Comparison of JSON and YAML
         </h2>
+        <p className="mb-6 leading-relaxed">
+          🔍 Want to test token counts yourself? Paste the JSON and YAML examples into OpenAI’s tokenizer here:
+          <br />
+          👉{" "}
+          <a
+            href="https://platform.openai.com/tokenizer"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ember underline hover:text-blue-400 transition"
+          >
+            https://platform.openai.com/tokenizer
+          </a>
+          <br />
+          See how many tokens each format uses — and why YAML can be a smarter choice for structured LLM outputs. Here’s a few examples.
+        </p>
         <h3 className="text-1xl font-semibold text-ember mb-2">Example 1</h3>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             241 Tokens
           </blockquote>
-          <code>
-            {`{
+          <CodeBlock
+  language="json"
+  code={`{
   "user": {
     "id": 1023,
     "name": "Alice Johnson",
@@ -110,15 +127,15 @@ export default function BlogJsonToYaml() {
     ]
   }
 }
-`}
-          </code>
+`}/>
         </pre>
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             194 Tokens
           </blockquote>
-          <code>
-            {`user:
+          <CodeBlock
+  language="yaml"
+  code={`user:
   id: 1023
   name: "Alice Johnson"
   email: "alice.j@example.com"
@@ -147,99 +164,105 @@ export default function BlogJsonToYaml() {
         - product_id: "P503"
           name: "USB-C Hub"
           quantity: 2
-`}
-          </code>
+`}/>
         </pre>
         <h3 className="text-1xl font-semibold text-ember mb-2">Example 2</h3>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             19 Tokens
           </blockquote>
-          <code>
-            {`{
+          <CodeBlock
+  language="json"
+  code={`{
   "values": [-10, 0, 5, 100]
 }`}
-          </code>
+          />
         </pre>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             22 Tokens
           </blockquote>
-          <code>
-            {`values:
+          <CodeBlock
+  language="yaml"
+  code={`values:
 - -10
 - 0
 - 5
 - 100`}
-          </code>
+          />
         </pre>
         <h3 className="text-1xl font-semibold text-ember mb-2">Example 3</h3>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             34 Tokens
           </blockquote>
-          <code>
-            {`{
+          <CodeBlock
+  language="json"
+  code={`{
   "user": "John",
   "active": true,
   "balance": -150.75,
   "roles": ["admin", "editor"]
 }`}
-          </code>
+          />
         </pre>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             28 Tokens
           </blockquote>
-          <code>
-            {`user: "John"
+          <CodeBlock
+  language="yaml"
+  code={`user: "John"
 active: true
 balance: -150.75
 roles:
   - "admin"
   - "editor"`}
-          </code>
+          />
         </pre>
         <h3 className="text-1xl font-semibold text-ember mb-2">Example 4</h3>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             34 Tokens
           </blockquote>
-          <code>
-            {`{
+          <CodeBlock
+  language="json"
+  code={`{
   "event": {
     "name": "Launch",
     "date": "2025-07-01",
     "online": false
   }
 }`}
-          </code>
+          />
         </pre>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             23 Tokens
           </blockquote>
-          <code>
-            {`event:
+          <CodeBlock
+  language="yaml"
+  code={`event:
 name: "Launch"
 date: "2025-07-01"
 online: false`}
-          </code>
+          />
         </pre>
         <h3 className="text-1xl font-semibold text-ember mb-2">Example 5</h3>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             49 Tokens
           </blockquote>
-          <code>
-            {`{
+          <CodeBlock
+  language="json"
+  code={`{
   "config": {
     "retry": 3,
     "thresholds": {
@@ -249,15 +272,16 @@ online: false`}
     "modes": ["auto", "manual"]
   }
 }`}
-          </code>
+          />
         </pre>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             36 Tokens
           </blockquote>
-          <code>
-            {`config:
+          <CodeBlock
+  language="yaml"
+  code={`config:
 retry: 3
 thresholds:
   warning: -1
@@ -265,58 +289,62 @@ thresholds:
 modes:
   - "auto"
   - "manual"`}
-          </code>
+          />
         </pre>
         <h3 className="text-1xl font-semibold text-ember mb-2">Example 6</h3>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             51 Tokens
           </blockquote>
-          <code>
-            {`{
+          <CodeBlock
+  language="json"
+  code={`{
   "servers": [
     { "host": "192.168.1.1", "port": 8080 },
     { "host": "192.168.1.2", "port": 8081 }
   ]
 }`}
-          </code>
+          />
         </pre>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             41 Tokens
           </blockquote>
-          <code>
-            {`servers:
+          <CodeBlock
+  language="yaml"
+  code={`servers:
 - host: "192.168.1.1"
   port: 8080
 - host: "192.168.1.2"
   port: 8081`}
-          </code>
+          />
         </pre>
         <h3 className="text-1xl font-semibold text-ember mb-2">Example 7</h3>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             18 Tokens
           </blockquote>
-          <code>
-            {`{
+          <CodeBlock
+  language="json"
+  code={`{
   "code": "007",
   "version": "1.0"
 }`}
-          </code>
+          />
         </pre>
 
-        <pre className="bg-black/80 text-green-400 text-sm font-mono p-4 rounded mb-6 whitespace-pre-wrap">
+        <pre className="bg-black/80 text-green-400 text-sm font-mono rounded mb-6 whitespace-pre-wrap">
           <blockquote className="border-l-4 border-gray-600 pl-4 italic text-gray-400">
             12 Tokens
           </blockquote>
-          <code>
-            {`code: "007"
+          <CodeBlock
+  language="yaml"
+  code={`code: "007"
 version: "1.0"`}
-          </code>
+          />
         </pre>
 
 
@@ -327,7 +355,7 @@ version: "1.0"`}
           However, YAML’s advantage diminishes—and can even reverse—in flat structures such as simple arrays, 
           where its line-based formatting introduces overhead. 
           While YAML also enhances human readability, 
-          In LLM prompts—YAML offers a compelling balance of compactness, clarity and speed over JSON, while maintaining exactly same structure.
+          In LLM prompts, YAML offers a compelling balance of compactness, clarity and speed over JSON, while maintaining exactly same structure.
         </p>
         
          
