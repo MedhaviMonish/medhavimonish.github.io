@@ -3,7 +3,7 @@
 export default function BlogJsonToYaml() {
   return (
     <main
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed"
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed flex justify-center items-start py-20 px-4"
       style={{ backgroundImage: "url('/images/bg-home.png')" }}
     >
       <div className="w-full max-w-4xl bg-black/80 text-white p-10 rounded-xl shadow-md">
