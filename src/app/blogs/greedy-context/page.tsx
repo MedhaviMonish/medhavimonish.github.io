@@ -1,5 +1,5 @@
 "use client";
-
+/* eslint-disable react/no-unescaped-entities */
 import CodeBlock from "@/components/CodeBlock";
 import Image from "next/image";
 
