@@ -368,8 +368,21 @@ version: "1.0"`}
           I’m not saying YAML is perfect — it has its quirks. But in a reasoning-first, RL-optimized, self-contained AI system — YAML gives me speed, clarity, and structure that JSON simply couldn’t.
           If you're building structured reasoning agents or tool-augmented models, try YAML.
           It might just make your system <b className="text-ember"><i>faster, smarter, and more aligned</i></b>.
+          <br />
+          <br />
+          💡 <span className="font-semibold">Bonus Tip:</span> Since you made it to the end — here’s something I learned while optimizing prompts:
+          <br />
+          Try converting your input text to lowercase. There’s no fixed metric — but in many cases, it either uses the same number of tokens or slightly fewer.
+          <br />
+          And when you're pushing limits… every token counts. 😉
         </p>
       </div>
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-6 right-6 z-50 bg-ember text-black px-4 py-2 rounded-full shadow-lg hover:bg-orange-400 transition"
+      >
+        ↑ Top
+      </button>
     </main>
   );
 }
