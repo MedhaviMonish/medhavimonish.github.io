@@ -1,7 +1,6 @@
 "use client";
 /* eslint-disable react/no-unescaped-entities */
 import CodeBlock from "@/components/CodeBlock";
-import Image from "next/image";
 
 export default function BlogGreedyContext() {
   return (
@@ -123,26 +122,24 @@ path.reverse()`} />
           The first visualization uses no threshold. The next one applies a small threshold to filter weaker links.
           Gray edges represent all possible semantic links:
         </p>
-        <Image
-          src="https://raw.githubusercontent.com/MedhaviMonish/GreedyContext/main/images/without_threshold.png"
-          alt="GreedyContext path visualization"
-          width={600}
-          height={600}
-          className="rounded shadow mb-6"
-        />
+        <img
+  src="https://raw.githubusercontent.com/MedhaviMonish/GreedyContext/main/images/without_threshold.png"
+  alt="GreedyContext path visualization"
+  width={600}
+  className="rounded shadow mb-6"
+/>
 
 
         <h2 className="text-2xl font-bold text-ember mb-2">💡 Final Tip</h2>
         <p className="mb-6 leading-relaxed">
           For optimal results, filter out weak similarities (e.g., below 0.2). This makes the graph cleaner and the context chain sharper — like this:
           <br /><br />
-          <Image
-            src="https://raw.githubusercontent.com/MedhaviMonish/GreedyContext/main/images/with_threshold.png"
-            alt="GreedyContext path visualization"
-            width={600}
-            height={600}
-            className="rounded shadow mb-6"
-          />
+          <img
+  src="https://raw.githubusercontent.com/MedhaviMonish/GreedyContext/main/images/with_threshold.png"
+  alt="GreedyContext path visualization"
+  width={600}
+  className="rounded shadow mb-6"
+/>
           <br /><br />
           💬 Bonus: You don’t need any database or summarization logic. Just plug this in and call your LLM with the selected messages.
         </p>
