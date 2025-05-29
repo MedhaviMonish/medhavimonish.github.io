@@ -1,8 +1,13 @@
 const blogs = [
   {
-    title: "Why I Moved from JSON to YAML for LLM Tool Calls",
+    title: "Why I Moved from JSON to YAML for LLM Use cases",
     summary: "A deep dive into how YAML reduced token bloat, improved structure, and made LLM integrations more reliable than JSON.",
     link: "/blogs/json-to-yaml"
+  },
+  {
+    title: "GreedyContext: Shrinking LLM Memory with Semantic Graphs",
+    summary: "How I built a cosine-similarity graph and greedy search to reduce token cost in long LLM conversations — without losing context.",
+    link: "/blogs/greedy-context"
   }
 ];
 

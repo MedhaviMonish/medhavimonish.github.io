@@ -6,6 +6,9 @@ const nextConfig = {
   basePath: isExport ? "" : "",
   assetPrefix: isExport ? "" : "",
   trailingSlash: true,
+  images: {
+    domains: ['raw.githubusercontent.com'],
+  },
 };
 
 module.exports = nextConfig;
