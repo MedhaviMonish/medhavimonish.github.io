@@ -41,18 +41,18 @@ export default function BlogJsonToYaml() {
           <li>Extracting incomplete JSON during streaming becomes a nightmare.</li>
         </ul>
         <p className="mb-6 leading-relaxed">
-          In my own LLM-RL pipeline, I was generating structured responses from the model — and YAML was the perfect choice.
+          In my own structured-output pipeline, I was generating reasoning traces and factual blocks from the model — and YAML was the perfect choice.
         </p>
 
         <h2 className="text-2xl font-bold text-ember mb-2">
           YAML: Compact, Streamable, and Human-Friendly
         </h2>
         <p className="mb-6 leading-relaxed">
-          The industry is pushing MCP (Model Context Protocol) as the “USB-C” for AI — but underneath, it’s still just JSON with tool descriptions. My approach skips the hype and focuses on real-world performance:
+          The industry is pushing MCP (Model Context Protocol) as the “USB-C” for AI — but underneath, it’s still just JSON with tool descriptions. My approach skips the hype and focuses on real-world performance.
         </p>
         Here’s why I moved to YAML:
         <p className="mb-6 leading-relaxed">
-          YAML eliminates quotes, brackets, and unnecessary noise. That means:
+          While JSON is required for tool calling, YAML shines when working with humans or LLMs directly. It avoids quotes, brackets, and nesting overhead — making outputs both faster and easier to parse.
         </p>
         <p className="mb-6 leading-relaxed">
           And it works — because it’s optimized not for interoperability, but for execution.
@@ -64,8 +64,6 @@ export default function BlogJsonToYaml() {
           <li>Fewer bugs</li>
           <li>Clearer structure</li>
         </ul>
-
-
 
         <h2 className="text-2xl font-bold text-ember mb-2">
           Comparison of JSON and YAML
@@ -358,15 +356,13 @@ version: "1.0"`}
           While YAML also enhances human readability, 
           In LLM prompts, YAML offers a compelling balance of compactness, clarity and speed over JSON, while maintaining exactly same structure.
         </p>
-        
-         
 
         <h2 className="text-2xl font-bold text-ember mb-2">
           Final Thoughts
         </h2>
         <p className="mb-6 leading-relaxed">
-          I’m not saying YAML is perfect — it has its quirks. But in a reasoning-first, RL-optimized, self-contained AI system — YAML gives me speed, clarity, and structure that JSON simply couldn’t.
-          If you're building structured reasoning agents or tool-augmented models, try YAML.
+          I’m not saying YAML is perfect — it has its quirks. But in a reasoning-first, minimal-token-cost AI system — YAML gives me speed, clarity, and structure that JSON simply couldn’t.
+          If you're using LLM to generate parameters to act as interface to agents/fucntions or streaming generation systems, try YAML.
           It might just make your system <b className="text-ember"><i>faster, smarter, and more aligned</i></b>.
           <br />
           <br />
