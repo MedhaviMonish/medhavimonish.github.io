@@ -28,9 +28,12 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold mb-6 border-b pb-2 border-gray-700">Blogs</h2>
           <BlogList />
         </section>
-        <footer className="mt-24 text-center text-sm text-gray-400 border-t border-gray-700 pt-6 pb-1">
+        <footer  id="footer" className="mt-24 text-center text-sm text-gray-400 border-t border-gray-700 pt-6 pb-1">
           <p>© {new Date().getFullYear()} Medhavi Monish — <span className="text-ember font-semibold">#AIBlacksmith</span></p>
           <div className="mt-2 space-x-4">
+            <a href="mailto:monishmedhavi@gmail.com" className="hover:underline">
+              Email
+            </a>
             <a href="https://github.com/MedhaviMonish" target="_blank" rel="noopener noreferrer" className="hover:underline">
               GitHub
             </a>
