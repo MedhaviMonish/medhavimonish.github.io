@@ -45,82 +45,44 @@ export default function BlogGreedyContext() {
 
         <h2 className="text-2xl font-bold text-ember mb-2">📌 A Simple Example</h2>
         <p className="mb-6 leading-relaxed">
-          Imagine this is a real user conversation:
+          You can pass both user and assistant messages into GreedyContext and let it trace the most relevant semantic path backward from the latest query:
         </p>
-          <ul className="list-disc list-inside space-y-2 text-gray-400 leading-relaxed mb-6">
-            <li>1️⃣ “I love taking long walks on the beach during sunset.”</li>
-            <li>2️⃣ “Artificial Intelligence is transforming the world rapidly.”</li>
-            <li>3️⃣ “Is there any financial aid or scholarship info I can look into?”</li>
-            <li>4️⃣ “I'm also curious about campus housing options—are freshmen required to live on campus?”</li>
-            <li>5️⃣ “By the way, do you know any good recommendations for online courses in data science?”</li>
-            <li>6️⃣ “How long does it typically take to complete one of those courses?”</li>
-            <li>7️⃣ “And for the application process, should I contact professors directly?”</li>
-            <li>8️⃣ “Are there any specific deadlines I should be aware of?”</li>
-            <li>9️⃣ “So, should I submit my test scores along with my application?”</li>
-            <li>🔟 “What about letters of recommendation—how many do I need?”</li>
-          </ul>
-        <p className="mb-6 leading-relaxed">
-          In a traditional method, all 10 messages would be sent to the model — including unrelated ones about beaches, data science, and student life.
-        </p>
-        <p className="mb-6 leading-relaxed">
-          With GreedyContext, only messages 🔟, 9️⃣, 8️⃣, 7️⃣, and 3️⃣ are selected — because they are semantically related to the application and admissions topic.
-          This drastically reduces token usage and focuses model attention on what actually matters.
-        </p>
-        <p className="mb-6 leading-relaxed">
-          If the user sends an 11<sup>th</sup> message like <b><i>“What is LLM?”</i></b>, then all previous 10 messages become irrelevant.
-          This method ensures those irrelevant messages are skipped — greatly benefiting LLMs during long sessions.
-        </p>
+        <CodeBlock language="python" code={`from semantic_context_graph import SemanticContextGraph
 
-        <h2 className="text-2xl font-bold text-ember mb-2">🔍 What GreedyContext Does</h2>
-        <ul className="list-disc list-inside space-y-2 text-gray-400 leading-relaxed mb-6">
-          <li>Embeds all conversation messages using SentenceTransformers</li>
-          <li>Builds a similarity graph using cosine scores</li>
-          <li>Restricts connections to past messages (upper triangular)</li>
-          <li>Uses greedy search to find the most relevant backward chain</li>
-          <li>Returns just the chain — no summarization needed</li>
-        </ul>
+chat_messages = [
+    {"role": "user", "content": "How do I start preparing for a career in robotics?"},
+    {"role": "assistant", "content": "You can begin with mechanical basics, then move into programming and embedded systems."},
+    {"role": "user", "content": "Which language is preferred—C++ or Python?"},
+    {"role": "assistant", "content": "Python is great for prototyping, but C++ is essential for performance-critical robotics."},
+    {"role": "user", "content": "Any tips on improving productivity while studying?"},
+    {"role": "assistant", "content": "Use Pomodoro timers and remove distractions."},
+    {"role": "user", "content": "What are some good home workouts without equipment?"},
+    {"role": "assistant", "content": "Bodyweight exercises like push-ups, squats, and planks work great."},
+    {"role": "user", "content": "Can you give me a quick vegetarian recipe?"},
+    {"role": "assistant", "content": "Try stir-fried veggies with tofu and rice."},
+    {"role": "user", "content": "What is quantum entanglement in simple terms?"}
+]
+
+# Recommended: use mode='cross' for better semantic accuracy
+graph = SemanticContextGraph(chat_messages, model_name="cross-encoder/stsb-roberta-base", mode="cross")
+graph.build_graph(threshold=0.2)
+
+path = graph.greedy_path(start_node=len(chat_messages), goal_node=1)
+used_ids, relevant_messages = graph.extract_relevant_messages(path)
+
+for msg in relevant_messages:
+    print(f"{msg['role'].upper()}: {msg['content']}")`} />
+
+        <h2 className="text-2xl font-bold text-ember mb-2">🧪 Output: Final Subset of Context</h2>
+        <CodeBlock language="text" code={`USER: What is quantum entanglement in simple terms?`} />
         <p className="mb-6 leading-relaxed">
-          The full graph visualization takes time because it generates HTML, but the actual filtering is fast — in under 0.5 seconds, hundreds of messages can be reduced to a tenth or less.
-          This helps the LLM preserve context and respond faster by processing fewer tokens.
+          Since this question starts a new topic, GreedyContext correctly filters out all unrelated prior messages and returns only the final user query — reducing token usage and improving clarity.
         </p>
-        <h2 className="text-2xl font-bold text-ember mb-2">⚙️ The Code</h2>
-        <p className="mb-6 leading-relaxed">
-          The full code fits in one Python file. You embed, graph, and greedily walk back:
-        </p>
-        <CodeBlock language="python" code={`from sentence_transformers import SentenceTransformer
-import networkx as nx
-import numpy as np
-
-s = ["message 1", "message 2", ..., "latest message"]
-model = SentenceTransformer("all-MiniLM-L6-v2")
-embeddings = model.encode(s)
-similarities = np.inner(embeddings, embeddings)
-
-# Strict upper triangular
-for i in range(len(s)):
-  similarities[i, :i+1] = 0
-
-G = nx.DiGraph()
-for i in range(len(s)):
-  for j in range(i+1, len(s)):
-    if similarities[i][j] > 0.2:
-      G.add_edge(j+1, i+1, weight=similarities[i][j])
-
-# Greedy backward walk
-path = [len(s)]
-while path[-1] != 1:
-  preds = list(G[path[-1]].items())
-  if not preds: break
-  next_node = max(preds, key=lambda x: x[1]['weight'])[0]
-  path.append(next_node)
-path.reverse()`} />
 
         <h2 className="text-2xl font-bold text-ember mb-2">🖼️ Visualizing the Greedy Path</h2>
         <p className="mb-4 leading-relaxed">
-          The red path below shows the semantic trail GreedyContext selects. 
-          We are tracking back from the latest user message to the first one.
-          The first visualization uses no threshold. The next one applies a small threshold to filter weaker links.
-          Gray edges represent all possible semantic links:
+          The red path below shows the semantic trail GreedyContext selects.
+          Even with the same result path, thresholded graphs reduce the number of edges, which leads to faster graph processing and clearer message linkage.
         </p>
         <img
   src="https://raw.githubusercontent.com/MedhaviMonish/GreedyContext/main/images/without_threshold.png"
@@ -129,19 +91,21 @@ path.reverse()`} />
   className="rounded shadow mb-6"
 />
 
-
-        <h2 className="text-2xl font-bold text-ember mb-2">💡 Final Tip</h2>
-        <p className="mb-6 leading-relaxed">
-          For optimal results, filter out weak similarities (e.g., below 0.2). This makes the graph cleaner and the context chain sharper — like this:
-          <br /><br />
-          <img
+        <img
   src="https://raw.githubusercontent.com/MedhaviMonish/GreedyContext/main/images/with_threshold.png"
   alt="GreedyContext path visualization"
   width={600}
   className="rounded shadow mb-6"
 />
+
+        <h2 className="text-2xl font-bold text-ember mb-2">💡 Final Tip</h2>
+        <p className="mb-6 leading-relaxed">
+          For best results, use a threshold (e.g. 0.2) to ignore weak links.
+          It trims unnecessary edges and lets the greedy algorithm return a cleaner and more focused message subset.
           <br /><br />
-          💬 Bonus: You don’t need any database or summarization logic. Just plug this in and call your LLM with the selected messages.
+          📌 <strong>CrossEncoder is recommended</strong> for better direction-aware relevance.
+          <br />
+          💬 Bonus: No database, no summarization — just plug this into your LLM chain.
         </p>
       </div>
       <button
