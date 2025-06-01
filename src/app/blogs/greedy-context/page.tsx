@@ -9,7 +9,9 @@ export default function BlogGreedyContext() {
       style={{ backgroundImage: "url('/images/bg-home.png')" }}
     >
       <div className="w-full max-w-4xl bg-black/80 text-gray-200 p-10 rounded-xl shadow-md">
-
+        <a href="/" className="text-sm text-gray-400 hover:text-white transition block mb-4">
+          ← Back to Home
+        </a>
         <h1 className="text-4xl font-bold text-ember mb-2">
   <a href="https://github.com/MedhaviMonish/GreedyContext" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline text-base block mb-2">
     🔗 View on GitHub

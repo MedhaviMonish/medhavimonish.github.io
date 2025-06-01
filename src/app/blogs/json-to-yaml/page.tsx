@@ -9,7 +9,9 @@ export default function BlogJsonToYaml() {
       style={{ backgroundImage: "url('/images/bg-home.png')" }}
     >
       <div className="w-full max-w-4xl bg-black/80 text-white p-10 rounded-xl shadow-md">
-
+        <a href="/" className="text-sm text-gray-400 hover:text-white transition block mb-4">
+          ← Back to Home
+        </a>
         <h1 className="text-4xl font-bold text-ember mb-2">
           Why I Moved from JSON to YAML for LLM Use cases
         </h1>
