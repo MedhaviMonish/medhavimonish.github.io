@@ -13,6 +13,11 @@ const blogs = [
     title: "Streaming JSON While streaming from LLM",
     summary: "How I built a forgiving JSON parser that lets you render partial LLM responses using YAML.",
     link: "/blogs/streaming-json"
+  },
+  {
+    title: "Custom RAG Without a Vector DB",
+    summary: "How I built a fast, local, vector-free RAG system using just pandas and SentenceTransformers — no FAISS, no Pinecone.",
+    link: "/blogs/custom-rag"
   }
 ];
 
