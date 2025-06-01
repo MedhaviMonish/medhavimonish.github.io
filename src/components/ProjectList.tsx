@@ -29,6 +29,16 @@ const projects = [
     },
   },
   {
+    title: "Stream-JSON",
+    tagline: "Render JSON incrementally while streaming YAML from LLMs",
+    description: "Streams YAML line-by-line from an LLM, parses valid chunks, and merges them into a full JSON template so the UI can reactively render structured data in real-time.",
+    tags: ["LLM", "Streaming", "YAML", "JSON UI"],
+    links: {
+      github: "https://github.com/MedhaviMonish/Stream-JSON",
+      blog: "/blogs/streaming-json"
+    }
+  },
+  {
     title: "Self-Driving Car v2",
     tagline: "Blender + Unity simulation with PPO agent",
     description: "Trains a car to navigate custom tracks using PPO in Unity with GPS integration.",

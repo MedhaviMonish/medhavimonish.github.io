@@ -8,6 +8,11 @@ const blogs = [
     title: "GreedyContext: Shrinking LLM Memory with Semantic Graphs",
     summary: "How I built a cosine-similarity graph and greedy search to reduce token cost in long LLM conversations — without losing context.",
     link: "/blogs/greedy-context"
+  },
+  {
+    title: "Streaming JSON While streaming from LLM",
+    summary: "How I built a forgiving JSON parser that lets you render partial LLM responses using YAML.",
+    link: "/blogs/streaming-json"
   }
 ];
 
