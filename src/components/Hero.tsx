@@ -1,5 +1,3 @@
-import { FaEnvelope, FaLinkedin } from "react-icons/fa";
-
 export default function Hero() {
   return (
     <section className="relative text-center max-w-3xl mx-auto py-16 px-4">
