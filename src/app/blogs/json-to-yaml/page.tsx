@@ -1,6 +1,7 @@
 "use client";
 /* eslint-disable react/no-unescaped-entities */
 import CodeBlock from "@/components/CodeBlock";
+import Link from "next/link";
 
 export default function BlogJsonToYaml() {
   return (
@@ -9,9 +10,9 @@ export default function BlogJsonToYaml() {
       style={{ backgroundImage: "url('/images/bg-home.png')" }}
     >
       <div className="w-full max-w-4xl bg-black/80 text-white p-10 rounded-xl shadow-md">
-        <a href="/" className="text-sm text-gray-400 hover:text-white transition block mb-4">
+        <Link href="/" className="text-sm text-gray-400 hover:text-white transition block mb-4">
           ← Back to Home
-        </a>
+        </Link>
         <h1 className="text-4xl font-bold text-ember mb-2">
           Why I Moved from JSON to YAML for LLM Use cases
         </h1>
@@ -74,14 +75,14 @@ export default function BlogJsonToYaml() {
           🔍 Want to test token counts yourself? Paste the JSON and YAML examples into OpenAI’s tokenizer here:
           <br />
           👉{" "}
-          <a
+          <Link
             href="https://platform.openai.com/tokenizer"
             target="_blank"
             rel="noopener noreferrer"
             className="text-ember underline hover:text-blue-400 transition"
           >
             https://platform.openai.com/tokenizer
-          </a>
+          </Link>
           <br />
           See how many tokens each format uses — and why YAML can be a smarter choice for structured LLM outputs. Here’s a few examples.
         </p>

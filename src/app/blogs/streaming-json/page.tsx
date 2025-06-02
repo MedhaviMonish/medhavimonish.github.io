@@ -1,18 +1,19 @@
 "use client";
 /* eslint-disable react/no-unescaped-entities */
 import CodeBlock from "@/components/CodeBlock";
+import Link from "next/link";
 
 export default function BlogStreamingJSON() {
   return (
     <main className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed flex justify-center items-start py-20 px-4" style={{ backgroundImage: "url('/images/bg-home.png')" }}>
       <div className="w-full max-w-4xl bg-black/80 text-white p-10 rounded-xl shadow-md">
-        <a href="/" className="text-sm text-gray-400 hover:text-white transition block mb-4">
+        <Link href="/" className="text-sm text-gray-400 hover:text-white transition block mb-4">
           ← Back to Home
-        </a>
+        </Link>
         <h1 className="text-4xl font-bold text-ember mb-2">
-        <a href="https://github.com/MedhaviMonish/Stream-JSON" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline text-base block mb-2">
+        <Link href="https://github.com/MedhaviMonish/Stream-JSON" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline text-base block mb-2">
           🔗 View on GitHub
-        </a>
+        </Link>
         Streaming JSON While Streaming from LLM
         </h1>
 
