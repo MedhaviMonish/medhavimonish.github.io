@@ -19,6 +19,16 @@ const projects = [
     },
   },
   {
+    title: "TwinSqueeze",
+    tagline: "Compact Siamese Encoder for Embedding Compression",
+    description: "Compresses 384-dim embeddings to 32-dim using contrastive loss + NEFTune. Great for fast RAG pipelines.",
+    tags: ["Siamese", "NEFTune", "Embeddings", "Compression"],
+    links: {
+      github: "https://github.com/MedhaviMonish/TwinSqueeze",
+      blog: "/blogs/twin-squeeze"
+    }
+  },
+  {
     title: "GreedyContext",
     tagline: "Token reduction for LLMs using greedy semantic graphs",
     description: "Builds semantic trails using cosine similarity and a greedy graph search to reduce LLM context size.",

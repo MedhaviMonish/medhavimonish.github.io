@@ -1,13 +1,18 @@
 const blogs = [
   {
-    title: "Why I Moved from JSON to YAML for LLM Use cases",
-    summary: "A deep dive into how YAML reduced token bloat, improved structure, and made LLM integrations more reliable than JSON.",
-    link: "/blogs/json-to-yaml"
+    title: "TwinSqueeze: Compressing Embeddings with Contrastive NEFTune",
+    summary: "A compact Siamese model that shrinks sentence embeddings for custom RAG pipelines while preserving cosine similarity.",
+    link: "/blogs/twin-squeeze"
   },
   {
     title: "GreedyContext: Shrinking LLM Memory with Semantic Graphs",
     summary: "How I built a cosine-similarity graph and greedy search to reduce token cost in long LLM conversations — without losing context.",
     link: "/blogs/greedy-context"
+  },
+  {
+    title: "Why I Moved from JSON to YAML for LLM Use cases",
+    summary: "A deep dive into how YAML reduced token bloat, improved structure, and made LLM integrations more reliable than JSON.",
+    link: "/blogs/json-to-yaml"
   },
   {
     title: "Streaming JSON While streaming from LLM",
