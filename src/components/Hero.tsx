@@ -31,6 +31,14 @@ export default function Hero() {
         >
           Contact Me
         </a>
+        <a
+          href="/Medhavi_Monish_Resume.pdf" // or the hosted PDF path
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-6 py-3 bg-black text-white font-semibold rounded hover:bg-gray-800 transition"
+        >
+          Resume
+        </a>
       </div>
     </section>
   );

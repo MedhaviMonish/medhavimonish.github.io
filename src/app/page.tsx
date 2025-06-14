@@ -40,9 +40,6 @@ export default function HomePage() {
             <a href="https://www.linkedin.com/in/medhavi-monish-a327ba169/" target="_blank" rel="noopener noreferrer" className="hover:underline">
               LinkedIn
             </a>
-            <a href="/Medhavi_Monish_Resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:underline">
-              Résumé
-            </a>
           </div>
         </footer>
         <button
