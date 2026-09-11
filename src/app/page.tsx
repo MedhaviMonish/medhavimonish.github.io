@@ -37,7 +37,7 @@ export default function HomePage() {
 
         <section id="blogs" className="forge-section">
           <div className="section-heading">
-            <div><span>//</span><h2>Field Notes</h2><small>decisions · failures · discoveries</small></div>
+            <div><span>{"//"}</span><h2>Field Notes</h2><small>decisions · failures · discoveries</small></div>
             <p>[ open archive ]</p>
           </div>
           <BlogList />

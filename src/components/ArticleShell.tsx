@@ -1,5 +1,6 @@
 import ForgeHeader from "./ForgeHeader";
 import NeuralField from "./NeuralField";
+import Link from "next/link";
 
 interface ArticleShellProps {
   code: string;
@@ -10,14 +11,16 @@ interface ArticleShellProps {
   children: React.ReactNode;
 }
 
-export default function ArticleShell({ code,title,summary,signal="ember",github,children }:ArticleShellProps) {
+export default function ArticleShell({ code, title, summary, signal = "ember", github, children }: ArticleShellProps) {
   return (
     <main className={`forge-shell article-theme signal-${signal}`}>
       <NeuralField />
       <ForgeHeader />
       <article className="article-shell">
         <header className="article-hero">
-          <a href="/" className="article-back">← RETURN TO FORGE</a>
+          <Link href="/" className="article-back">
+            ← RETURN TO FORGE
+          </Link>
           <span>{code}</span>
           <h1>{title}</h1>
           <p>{summary}</p>
