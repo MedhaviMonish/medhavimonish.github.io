@@ -57,3 +57,93 @@ body {
 .forge-footer a {
   font-size: 12px;
 }
+
+/* Append this block to app/globals.css */
+.blog-motion-page { --signal: var(--ember); }
+.blog-motion-page.signal-cyan { --signal: var(--cyan); }
+.blog-motion-page.signal-violet { --signal: var(--violet); }
+.blog-motion-page.signal-green { --signal: var(--green); }
+
+.reading-progress {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform-origin: 0 50%;
+  background: var(--signal);
+  box-shadow: 0 0 16px var(--signal);
+}
+
+.blog-motion-article {
+  position: relative;
+  z-index: 2;
+  width: min(900px, calc(100% - 32px));
+  margin: 72px auto 0;
+  padding-bottom: 90px;
+}
+
+.blog-motion-article > div:first-child {
+  width: 100%;
+  max-width: none;
+  padding: 58px 68px;
+  color: #c8cccc;
+  background: rgba(9, 10, 10, 0.94);
+  border: 1px solid var(--steel);
+  border-top: 2px solid var(--signal);
+  border-radius: 0;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7);
+  line-height: 1.82;
+}
+
+.blog-motion-article h1 {
+  margin: 24px 0 30px;
+  color: var(--pale) !important;
+  font: 700 clamp(38px, 6vw, 64px) / 1 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.blog-motion-article h2 {
+  margin: 58px 0 16px;
+  padding-left: 18px;
+  color: var(--pale) !important;
+  border-left: 2px solid var(--signal);
+  font: 600 30px / 1.15 var(--font-display);
+  text-transform: uppercase;
+}
+
+.blog-motion-article h3 { color: var(--signal) !important; }
+.blog-motion-article p,
+.blog-motion-article li { font-size: 16px; color: #aeb3b3; }
+.blog-motion-article a { color: var(--signal) !important; }
+.blog-motion-article strong,
+.blog-motion-article b { color: var(--pale); }
+.blog-motion-article blockquote {
+  margin: 28px 0;
+  padding: 18px 24px;
+  color: #aeb3b3;
+  background: #101212;
+  border-left: 2px solid var(--signal) !important;
+}
+.blog-motion-article img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--steel);
+  border-radius: 0;
+}
+.blog-motion-article table { background: #0a0b0b; }
+.blog-motion-article th { color: var(--signal) !important; }
+
+.blog-motion-article > button {
+  color: #080808 !important;
+  background: var(--signal) !important;
+}
+
+@media (max-width: 700px) {
+  .blog-motion-article { margin-top: 24px; }
+  .blog-motion-article > div:first-child { padding: 34px 22px; }
+  .blog-motion-article h1 { font-size: 40px; }
+  .blog-motion-article h2 { font-size: 25px; }
+}

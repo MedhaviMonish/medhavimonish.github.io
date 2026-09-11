@@ -2,13 +2,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import CodeBlock from "@/components/CodeBlock";
 import Link from "next/link";
+import BlogMotionShell from "@/components/BlogMotionShell";
 
 export default function BlogGreedyContext() {
   return (
-    <main
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed flex justify-center items-start py-20 px-4"
-      style={{ backgroundImage: "url('/images/bg-home.png')" }}
-    >
+    <BlogMotionShell signal="cyan">
       <div className="w-full max-w-4xl bg-black/80 text-gray-200 p-10 rounded-xl shadow-md">
         <Link href="/" className="text-sm text-gray-400 hover:text-white transition block mb-4">
           ← Back to Home
@@ -117,6 +115,6 @@ for msg in relevant_messages:
       >
         ↑ Top
       </button>
-    </main>
+    </BlogMotionShell>
   );
 }

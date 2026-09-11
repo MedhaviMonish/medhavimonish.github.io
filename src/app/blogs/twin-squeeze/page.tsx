@@ -1,13 +1,11 @@
 "use client";
 import Link from "next/link";
 import CodeBlock from "@/components/CodeBlock";
+import BlogMotionShell from "@/components/BlogMotionShell";
 
 export default function BlogTwinSqueeze() {
   return (
-    <main
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed flex justify-center items-start py-20 px-4"
-      style={{ backgroundImage: "url('/images/bg-home.png')" }}
-    >
+    <BlogMotionShell signal="violet">
       <div className="w-full max-w-4xl bg-black/80 text-white p-10 rounded-xl shadow-md">
         <Link href="/" className="text-sm text-gray-400 hover:text-white transition block mb-4">
           ← Back to Home
@@ -171,6 +169,6 @@ python test_all_models.py`}/>
       >
         ↑ Top
       </button>
-    </main>
+    </BlogMotionShell>
   );
 }
