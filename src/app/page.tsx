@@ -16,7 +16,7 @@ export default function HomePage() {
 
         <section id="projects" className="forge-section">
           <div className="section-heading">
-            <div><span>//</span><h2>Active Systems</h2><small>research · build · deploy · repeat</small></div>
+            <div><span>{"//"}</span><h2>Active Systems</h2><small>research · build · deploy · repeat</small></div>
             <p>[ 09 systems indexed ]</p>
           </div>
           <ProjectList />
