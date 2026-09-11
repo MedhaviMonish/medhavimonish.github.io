@@ -2,7 +2,12 @@
 
 import { motion } from "motion/react";
 
-const links = [["01", "Home", "#home"], ["02", "Projects", "#projects"], ["03", "Writings", "#blogs"], ["04", "Contact", "#contact"]];
+const links = [
+  ["01", "Home", "/"],
+  ["02", "Projects", "/#projects"],
+  ["03", "Writings", "/#blogs"],
+  ["04", "Contact", "/#contact"],
+];
 
 export default function ForgeHeader() {
   return (
